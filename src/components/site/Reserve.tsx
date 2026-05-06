@@ -73,12 +73,12 @@ export function Reserve() {
 
             <div className="mt-8 grid gap-5 md:grid-cols-2">
               {fields.map((f) => (
-                <div key={f.k} className={f.col ?? ""}>
+                <div key={f.k} className={"col" in f ? (f.col as string) : ""}>
                   <label className="mb-2 block text-[10px] font-medium uppercase tracking-widest text-muted-foreground">{f.label}</label>
                   <input
                     type={f.type}
                     required
-                    placeholder={"placeholder" in f ? (f.placeholder as string) : undefined}
+                    placeholder={"placeholder" in f ? (f as { placeholder: string }).placeholder : undefined}
                     value={(data as Record<string, string>)[f.k]}
                     onChange={(e) => setData({ ...data, [f.k]: e.target.value })}
                     className="w-full rounded-xl border border-border bg-background px-4 py-3.5 text-sm outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/15"
