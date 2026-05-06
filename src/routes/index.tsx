@@ -1,26 +1,40 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Toaster } from "@/components/ui/sonner";
+import { Nav } from "@/components/site/Nav";
+import { Hero } from "@/components/site/Hero";
+import { Story } from "@/components/site/Story";
+import { Menu } from "@/components/site/Menu";
+import { Gallery } from "@/components/site/Gallery";
+import { Events } from "@/components/site/Events";
+import { Testimonials } from "@/components/site/Testimonials";
+import { Reserve } from "@/components/site/Reserve";
+import { Visit } from "@/components/site/Visit";
+import { Footer } from "@/components/site/Footer";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Mosaic Brew Café — Artisan Coffee in Chennai" },
+      { name: "description", content: "Slow-brewed coffee, fresh handmade bakes and a cozy corner in Grand Arcade, Chennai. Reserve a table at Mosaic Brew Café." },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
-
 function Index() {
-  return <PlaceholderIndex />;
+  return (
+    <main className="bg-background text-foreground">
+      <Nav />
+      <Hero />
+      <Story />
+      <Menu />
+      <Gallery />
+      <Events />
+      <Testimonials />
+      <Reserve />
+      <Visit />
+      <Footer />
+      <Toaster position="top-center" />
+    </main>
+  );
 }
