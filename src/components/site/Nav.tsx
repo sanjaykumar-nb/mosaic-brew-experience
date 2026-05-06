@@ -26,11 +26,11 @@ export function Nav() {
       initial={{ y: -40, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "py-3" : "py-6"}`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "py-3" : "py-5"}`}
     >
-      <div className={`mx-auto flex max-w-7xl items-center justify-between px-6 md:px-10 transition-all duration-500 ${scrolled ? "glass rounded-full mx-4 md:mx-10 px-6 py-2" : ""}`}>
-        <a href="#top" className="flex items-center gap-2 group">
-          <span className="grid h-9 w-9 place-items-center rounded-full bg-primary text-primary-foreground transition-transform group-hover:rotate-12">
+      <div className={`mx-auto flex max-w-7xl items-center justify-between gap-4 transition-all duration-500 ${scrolled ? "glass rounded-full mx-4 md:mx-10 px-4 md:px-6 py-2 text-foreground" : "px-6 md:px-10 text-cream"}`}>
+        <a href="#top" className="flex items-center gap-2 group shrink-0">
+          <span className={`grid h-9 w-9 place-items-center rounded-full transition-all group-hover:rotate-12 ${scrolled ? "bg-primary text-primary-foreground" : "bg-cream text-charcoal"}`}>
             <Coffee className="h-4 w-4" />
           </span>
           <span className="font-display text-lg font-semibold tracking-tight">Mosaic Brew</span>
@@ -38,17 +38,17 @@ export function Nav() {
 
         <nav className="hidden items-center gap-8 md:flex">
           {links.map((l) => (
-            <a key={l.href} href={l.href} className="relative text-sm font-medium text-foreground/75 transition-colors hover:text-foreground after:absolute after:left-0 after:bottom-[-6px] after:h-px after:w-0 after:bg-accent after:transition-all hover:after:w-full">
+            <a key={l.href} href={l.href} className={`relative text-sm font-medium transition-colors after:absolute after:left-0 after:bottom-[-6px] after:h-px after:w-0 after:bg-accent after:transition-all hover:after:w-full ${scrolled ? "text-foreground/75 hover:text-foreground" : "text-cream/85 hover:text-cream"}`}>
               {l.label}
             </a>
           ))}
         </nav>
 
-        <a href="#reserve" className="hidden md:inline-flex items-center rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-soft transition-all hover:scale-105 hover:shadow-elegant">
+        <a href="#reserve" className={`hidden md:inline-flex items-center rounded-full px-5 py-2.5 text-sm font-medium shadow-soft transition-all hover:scale-105 hover:shadow-elegant ${scrolled ? "bg-primary text-primary-foreground" : "bg-cream text-charcoal"}`}>
           Reserve
         </a>
 
-        <button onClick={() => setOpen(!open)} className="md:hidden grid h-10 w-10 place-items-center rounded-full glass">
+        <button onClick={() => setOpen(!open)} className={`md:hidden grid h-10 w-10 place-items-center rounded-full ${scrolled ? "glass text-foreground" : "bg-cream/15 backdrop-blur-md border border-cream/25 text-cream"}`}>
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
