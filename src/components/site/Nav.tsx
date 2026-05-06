@@ -26,9 +26,9 @@ export function Nav() {
       initial={{ y: -40, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "py-3" : "py-5"}`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-[padding] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${scrolled ? "py-2" : "py-5"}`}
     >
-      <div className={`mx-auto flex max-w-7xl items-center justify-between gap-4 transition-all duration-500 ${scrolled ? "glass rounded-full mx-4 md:mx-10 px-4 md:px-6 py-2 text-foreground" : "px-6 md:px-10 text-cream"}`}>
+      <div style={{ transitionProperty: "background-color, color, backdrop-filter, border-color, border-radius, margin, padding, box-shadow", transitionDuration: "700ms", transitionTimingFunction: "cubic-bezier(0.22,1,0.36,1)" }} className={`mx-auto flex max-w-7xl items-center justify-between gap-4 ${scrolled ? "glass rounded-full mx-4 md:mx-10 px-4 md:px-6 py-2 text-foreground shadow-soft" : "px-6 md:px-10 text-cream rounded-none"}`}>
         <a href="#top" className="flex items-center gap-2 group shrink-0">
           <span className={`grid h-9 w-9 place-items-center rounded-full transition-all group-hover:rotate-12 ${scrolled ? "bg-primary text-primary-foreground" : "bg-cream text-charcoal"}`}>
             <Coffee className="h-4 w-4" />
